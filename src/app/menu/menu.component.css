@@ -1,0 +1,257 @@
+.map-metro {
+    width: 987px;
+    height: 952px;
+    display: block;
+    position: absolute;
+    left: 0;
+}
+
+@media only screen and (max-width: 160px) {
+    #contentPanel {
+        flex-direction: column;
+    }
+}
+
+
+
+.ligne {
+    width: 30px;
+    height: auto;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.ligneTrajet {
+    width: 30px;
+    height: auto;
+    margin-left: 40px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.container {
+    float: left;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    /*transform: scale(1.2) translate(20vw);*/
+    margin-left: 20px;
+}
+
+.points .point {
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    border: 1px solid white
+}
+
+.points .point:hover {
+    cursor: pointer;
+}
+
+.menu {
+    margin-top: 120px;
+    background-color: #FFFDE9;
+    width: 30%;
+    height: 950px;
+    float: right;
+    margin-right: 15px;
+}
+
+.logoRatp {
+    width: 8%;
+    height: auto;
+    display: inline;
+}
+
+.logo {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#navbar {
+    background-color: #2F4E96;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+
+#block {
+    background-color: #00A994;
+    width: 20%;
+    height: 100px;
+    /* float: right; */
+    /* margin-top: -80.5px; */
+}
+
+#viewPanelContainer {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+
+}
+
+#viewPanel {
+    display: flex;
+    flex-direction: column;
+    min-height: 1050px;
+    min-width: 1050px;
+    align-content: center;
+}
+
+#contentPanelContainer {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+#contentPanel {
+    display: flex;
+    margin-top: 4%;
+    /* margin-left: 20px; */
+    /* margin:0 -5px; */
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+#metroPanel {
+    background-color: #2F4E96;
+    width: 987px;
+    height: 50px;
+    /* display: block; */
+    /* position: absolute; */
+    /* margin-top: 140px; */
+    margin-left: 20px;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.metroLogo {
+    width: auto;
+    height: 5rem;
+    margin-left: 50px;
+    margin-top: 12px;
+
+}
+
+.destination {
+    background-color: white;
+    width: 30%;
+    height: 952px;
+    float: right;
+    margin-top: 195px;
+    margin-right: 10px;
+    box-shadow: 5px 5px 20px 2px #1B1B1B;
+}
+
+#resultPanel {
+    display: flex;
+    /* margin-top: 5%; */
+    /* margin-left: 20px; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 800px;
+
+}
+
+#trajetHeader {
+    background-color: #00A994;
+    /* display: flex; */
+    border-radius: 10px 10px 0px 0px;
+    min-width: 400px;
+}
+
+.trajetPanel {
+    /* background-color: #00A994; */
+    /* width: 30.08%; */
+    height: 50px;
+    /* margin-top: 140px; */
+    /* margin-left: 1053px; */
+    /* border-radius: 10px 10px 0px 0px; */
+    box-shadow: 5px 5px 20px 2px #1B1B1B;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: scroll;
+}
+
+
+#trajetTxt {
+    color: #fff;
+    font-family: "ParisineNew2", "Gill Sans", "Gill Sans MT", 'Calibri', sans-serif;
+    text-align: center;
+    margin-top: 8px;
+}
+
+
+.form-select-depart {
+    border-radius: 5px;
+    width: 150px;
+    display: inline;
+}
+
+
+.navbarTxt1 {
+    display: inline;
+    color: #fff;
+    font-family: "ParisineNew2", "Gill Sans", "Gill Sans MT", 'Calibri', sans-serif;
+    margin-top: 0px;
+    margin-left: 2px;
+    margin-right: 10px;
+}
+
+.navbarTxt2 {
+    display: inline;
+    color: #fff;
+    font-family: "ParisineNew2", "Gill Sans", "Gill Sans MT", 'Calibri', sans-serif;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.ouAllonNous {
+    color: #fff;
+    font-family: "ParisineNew2", "Gill Sans", "Gill Sans MT", 'Calibri', sans-serif;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+}
+
+
+.txt {
+    margin-left: 30px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.arret {
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 5px;
+    font-family: "ParisineNew2", "Gill Sans", "Gill Sans MT", 'Calibri', sans-serif;
+}
+
+.btn {
+
+    display: inline;
+    margin-left: 20px;
+}
+
+.gareName {
+    display: inline;
+    font-size: 1.4em;
+}

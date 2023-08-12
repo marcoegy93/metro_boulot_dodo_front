@@ -1,0 +1,118 @@
+
+
+<div id="navbar">
+    <div class="txt">
+        <h2 class="ouAllonNous">Où allons nous ?</h2>
+        <h3 class="navbarTxt1">De </h3>
+        <select [(ngModel)]="selectedDepart" class="form-select-depart" aria-label="Default select example">
+            <option *ngFor="let gare of listGare" [ngValue]="gare">
+                {{gare.name}}
+            </option>
+
+        </select>
+        <h3 class="navbarTxt2"> A </h3>
+        <select [(ngModel)]="selectedArrivee" class="form-select-depart" aria-label="Default select example">
+            <option *ngFor="let gare of listGare" [ngValue]="gare">
+                {{gare.name}}
+            </option>
+        </select>
+
+        <button class="btn" type="button" (click)="getRoute()"
+            [disabled]="!(selectedDepart && this.selectedArrivee)  || acpmDo">
+            Chercher
+        </button>
+
+
+        <button class="btn" type="button" (click)="resetMap()"
+            [disabled]="(selectedArrivee===null && selectedDepart===null) && !acpmDo">
+            Reset
+        </button>
+        <button class="btn" type="button" (click)="isConnex()" [disabled]="acpmDo || searchDo">
+            Is Connexe ?
+        </button>
+        <button class="btn" type="button" (click)="getACPM()" [disabled]="acpmDo || searchDo">
+            GET ACPM
+        </button>
+        <button class="btn" type="button" (click)="getACPMGare()" [disabled]="acpmDo || searchDo">
+            GET ACPM 2
+        </button>
+
+            <h3 style="float:right; ">Quick Mode</h3>
+            <input style="float:right; margin-top: 8px;margin-left:15px" [ngModel]="modeSpeed"
+            (change)="onCheckBoxChanged()"
+             type="checkbox" id="scales" name="scales" checked>
+
+
+
+    </div>
+    <div id="block">
+        <img class="metroLogo" src="../../assets/Images/ratpLogo.png" alt="Carte du metro parisien">
+    </div>
+</div>
+<div id="contentPanel">
+    <div id="viewPanelContainer">
+        <div id="viewPanel">
+            <div id="metroPanel">
+
+                <div *ngFor="let metro of listMetroImg">
+                    <img [ngStyle]="lineIsUsed(metro)" [src]='"../../assets/Images/" + metro' class="ligne" />
+                </div>
+
+            </div>
+
+            <div class="container">
+                <img class="map-metro" [ngStyle]="mapSearch()" src="../../assets/Images/metrof_r.png"
+                    alt="Carte du metro parisien">
+                <div class="points">
+                    <canvas #canvas width="987" height="952" style=" position: absolute;"></canvas>
+
+                    <div *ngFor="let arrete of listArrete">
+                        <div class="point" (click)="newDestination(arrete.station1)" [ngStyle]="addStyle1(arrete)"></div>
+                        <div class="point" (click)="newDestination(arrete.station2)" [ngStyle]="addStyle2(arrete)"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="contentPanelContainer">
+        <div id="resultPanel">
+            <div id="trajetHeader">
+                <h1 id="trajetTxt">Trajet</h1>
+            </div>
+            <div class="trajetPanel">
+                <!-- <h1 id="trajetTxt">Trajet</h1> -->
+
+                <div *ngIf="acpmDo">
+                    <h1>Arbre couvrant de poids minimum</h1>
+                </div>
+                <div *ngIf="searchDo || acpmDo" style=" display: inline;">
+                    <div style="text-align: center">
+                        <i>Durée du trajet </i>
+                        <input [ngModel]="dureeTrajet" style="margin-left: 5px; margin-top: 10px;" readonly="readonly" type="text"
+                            id="name" name="name" required minlength="3" maxlength="5" size="5">
+                    </div>
+                </div>
+                <div *ngIf="searchDo">
+                    <div class="arret" *ngFor="let gare of listeGareToStop">
+                        <div *ngIf="gare.ligne !== 'changement'">
+                            <img [src]='"../../assets/Images/" + gare.ligne' class="ligneTrajet" />
+                            <i class="gareName">{{ gare.name }}</i>
+                        </div>
+                        <div *ngIf="gare.ligne == 'changement'">
+                            <br>
+                            {{ gare.name }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="destination"></div> -->
+        </div>
+    </div>
+
+
+</div>
